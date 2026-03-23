@@ -1,0 +1,96 @@
+{
+    "key": "group_dynamic_filters",
+    "title": "Dynamic Filters Options",
+    "fields": [
+        {
+            "key": "field_filter_items",
+            "label": "Filter Items",
+            "name": "filter_items",
+            "type": "repeater",
+            "instructions": "Add filters for each CPT",
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Filter",
+            "sub_fields": [
+                {
+                    "key": "field_filter_type",
+                    "label": "Filter Type",
+                    "name": "filter_type",
+                    "type": "select",
+                    "choices": {
+                        "acf_field": "ACF Field",
+                        "taxonomy": "Taxonomy",
+                        "price": "Price"
+                    },
+                    "default_value": "acf_field",
+                    "allow_null": 0,
+                    "multiple": 0
+                },
+                {
+                    "key": "field_field_name",
+                    "label": "Field / Taxonomy Name",
+                    "name": "field_name",
+                    "type": "text",
+                    "instructions": "Enter ACF field key or taxonomy slug",
+                    "required": 1
+                },
+                {
+                    "key": "field_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "Filter label displayed on frontend",
+                    "required": 1
+                },
+                {
+                    "key": "field_input_type",
+                    "label": "Input Type",
+                    "name": "input_type",
+                    "type": "select",
+                    "choices": {
+                        "select": "Select",
+                        "checkbox": "Checkbox",
+                        "range": "Range Slider",
+                        "text": "Text"
+                    },
+                    "default_value": "select"
+                },
+                {
+                    "key": "field_options",
+                    "label": "Options",
+                    "name": "options",
+                    "type": "text",
+                    "instructions": "Comma-separated values for select/checkbox filters",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_input_type",
+                                "operator": "!=",
+                                "value": "range"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "dynamic-filters"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}
